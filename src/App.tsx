@@ -143,20 +143,20 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-200">
       {/* Header */}
       <header className="bg-white shadow-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-gray-900">Mini shopping</h1>
-              <span className="ml-2 text-sm text-gray-500">Cart🛍️</span>
+              <h1 className="text-2xl font-bold text-gray-600">Mini shopping</h1>
+              <span className="ml-2 text-sm text-gray-900">Cart🛍️</span>
             </div>
             
             {/* Cart Icon */}
             <button
               onClick={() => setIsCartOpen(!isCartOpen)}
-              className="relative p-2 text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              className="relative p-2 text-gray-900 hover:text-blue-600 transition-colors duration-200"
             >
               <ShoppingCart className="w-6 h-6" />
               {getTotalItems() > 0 && (
@@ -173,44 +173,38 @@ function App() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Hero Section */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-blue-600 mb-4">Featured Products</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-500 to-indigo-500 via-pink-500 bg-clip-text text-transparent mb-4">Featured Products</h2>
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
             Discover our carefully curated selection of premium electronics and tech accessories
           </p>
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-8 mb-26">
+ <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-8 mb-26">
           {products.map((product) => (
             <div
               key={product.id}
-              className="rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group"
+              className="rounded-2xl bg-gray-100 shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group"
             >
               {/* Product Image */}
-              <div className="relative overflow-hidden bg-gray-600">
+              <div className="relative overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-45 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-45 object-fit group-hover:scale-97 transition-transform duration-300  p-[4px] rounded-2xl bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500"
                 />
-                {/* <div className="absolute top-4 right-4">
-                  <span className="bg-blue-600 text-white text-xs px-2 py-1 rounded-full">
-                    {product.category}
-                  </span>
-                </div> */}
+               
               </div>
 
               {/* Product Details */}
-              <div className="p-4">
+              <div className="p-2">
                 <h3 className="font-semibold text-gray-900 mb-1">
                   {product.name}
                 </h3>
                 
                 {/* Rating */}
                 <div className="flex items-center mb-1">
-                  {/* <div className="flex mr-2">
-                    {renderRating(product.rating)}
-                  </div> */}
+                 
                   <span className="text-sm text-gray-600">({product.rating})</span>
                 </div>
 
@@ -231,7 +225,8 @@ function App() {
               </div>
             </div>
           ))}
-        </div>
+        </div> 
+
       </main>
 
       {/* Shopping Cart Sidebar */}
@@ -307,47 +302,9 @@ function App() {
         </div>
       </div>
 
-      {/* {isCartOpen && (
-        // <div
-        //   className="fixed inset-0 bg-black bg-opacity-50 z-40"
-        //   onClick={() => setIsCartOpen(false)}
-        // />
-      )} */}
+     
 
-      {/* // Footer */}
-      {/* // <footer className="bg-gray-900 text-white mt-16">
-      //   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      //     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-      //       <div>
-      //         <h3 className="text-xl font-bold mb-4">TechStore</h3>
-      //         <p className="text-gray-300 mb-4">
-      //           Your trusted destination for premium electronics and tech accessories.
-      //         </p>
-      //         <p className="text-gray-400">© 2024 TechStore. All rights reserved.</p>
-      //       </div>
-            
-      //       <div>
-      //         <h4 className="text-lg font-semibold mb-4">Customer Service</h4>
-      //         <ul className="space-y-2 text-gray-300">
-      //           <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
-      //           <li><a href="#" className="hover:text-white transition-colors">Shipping Info</a></li>
-      //           <li><a href="#" className="hover:text-white transition-colors">Returns</a></li>
-      //           <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
-      //         </ul>
-      //       </div>
-            
-      //       <div>
-      //         <h4 className="text-lg font-semibold mb-4">Categories</h4>
-      //         <ul className="space-y-2 text-gray-300">
-      //           <li><a href="#" className="hover:text-white transition-colors">Audio</a></li>
-      //           <li><a href="#" className="hover:text-white transition-colors">Wearables</a></li>
-      //           <li><a href="#" className="hover:text-white transition-colors">Gaming</a></li>
-      //           <li><a href="#" className="hover:text-white transition-colors">Accessories</a></li>
-      //         </ul>
-      //       </div>
-      //     </div>
-      //   </div>
-      // </footer> */}
+
     </div>
   );
 };
